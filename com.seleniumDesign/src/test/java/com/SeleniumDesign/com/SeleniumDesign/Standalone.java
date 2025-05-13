@@ -3,6 +3,9 @@ package com.SeleniumDesign.com.SeleniumDesign;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import seleniumDesign.pageObject.LandingPage;
+import seleniumDesign.pageObject.ProductCatalog;
+
 import java.time.Duration;
 import java.util.List;
 
@@ -22,21 +25,19 @@ public class Standalone {
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		String productName = "ZARA COAT 3";
-		driver.get("https://rahulshettyacademy.com/client");
-		driver.findElement(By.id("userEmail")).sendKeys("te100st@test.com");
-		driver.findElement(By.id("userPassword")).sendKeys("12345678@Aa");
-		driver.findElement(By.id("login")).click();
-		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
 		
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".offset-sm-1")));
-		List<WebElement> products = driver.findElements(By.cssSelector(".offset-sm-1"));
+		LandingPage landingPage = new LandingPage(driver);
+		landingPage.goTo();
+		landingPage.loginIntoApplication("te100st@test.com", "12345678@Aa");
+		ProductCatalog productCatalog = new ProductCatalog(driver);
+		List<WebElement> products = productCatalog.getProductList();
 		WebElement prod = products.stream()
 				.filter(product -> product.findElement(By.cssSelector("b"))
 						.getText()
 						.equals("ZARA COAT 3"))
 				.findFirst()
 				.orElse(null);
-		
+		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
 		System.out.println(prod.findElement(By.cssSelector("b")).getText());
 		prod.findElement(By.cssSelector(".card-body button:last-of-type")).click();
 		wait.until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".ng-animating"))));
