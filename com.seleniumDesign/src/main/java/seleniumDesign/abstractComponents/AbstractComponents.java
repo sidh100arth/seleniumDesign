@@ -1,6 +1,7 @@
 package seleniumDesign.abstractComponents;
 
 import java.time.Duration;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -28,4 +29,10 @@ public class AbstractComponents {
 		wait.until(ExpectedConditions.invisibilityOf(element));
 	}
 	
+	public void waitForWebElementToAppear(WebElement element) {
+		wait.until(ExpectedConditions.visibilityOf(element));
+	}
+	public void waitForListWebElementToAppear(List<WebElement> elements) {
+		wait.until(ExpectedConditions.visibilityOfAllElements(elements));
+	}
 }

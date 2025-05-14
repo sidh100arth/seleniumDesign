@@ -3,8 +3,11 @@ package com.SeleniumDesign.com.SeleniumDesign;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import seleniumDesign.pageObject.CartPage;
+import seleniumDesign.pageObject.CheckoutPage;
 import seleniumDesign.pageObject.LandingPage;
 import seleniumDesign.pageObject.ProductCatalog;
+import seleniumDesign.pageObject.ThankyouPage;
 
 import java.time.Duration;
 import java.util.List;
@@ -32,38 +35,18 @@ public class Standalone {
 		ProductCatalog productCatalog = new ProductCatalog(driver);
 		List<WebElement> products = productCatalog.getProductList();
 		productCatalog.addProductToCart(productName);
-		
-		
-		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
-		
 		productCatalog.goToCart();
-		
-		
-		List<WebElement> productsInCart =  driver.findElements(By.cssSelector(".cartSection h3"));
-		Boolean match = productsInCart.stream().anyMatch(product->product.getText().equals(productName));
+		CartPage cartpage = new CartPage(driver);
+		Boolean match = cartpage.matchProductInCart(productName);
+		cartpage.clickOnCheckoutButton();
 		Assert.assertTrue(match);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[normalize-space(text())='Checkout']")));
-		driver.findElement(By.xpath("//button[normalize-space(text())='Checkout']")).click();
+		
 		String countryToSelect = "India";
-		Actions a = new Actions(driver);
-//		added some  comments
-//		a.sendKeys(driver.findElement(By.cssSelector("input[placeholder='Select Country']")), countryToSelect).build().perform();
-		driver.findElement(By.cssSelector("input[placeholder='Select Country']")).sendKeys(countryToSelect);
-		
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("section .list-group")));
-		
-		List<WebElement> countries = driver.findElements(By.cssSelector("section .list-group button"));
-		WebElement givenCountry = countries.stream()
-				.filter(country->country.findElement(By.cssSelector("span"))
-						.getText()
-						.equalsIgnoreCase(countryToSelect))
-				.findFirst()
-				.orElse(null);
-		
-		givenCountry.click();
-		driver.findElement(By.cssSelector(".action__submit")).click();
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("h1")));
-		String thanksText = driver.findElement(By.cssSelector("h1")).getText().trim();
+		CheckoutPage checkoutpage = new CheckoutPage(driver);
+		checkoutpage.selectCountry(countryToSelect);
+		checkoutpage.submitOrder();
+		ThankyouPage thankspage = new ThankyouPage(driver);
+		String thanksText = thankspage.verifyThankyouMessage();
 		Assert.assertEquals(thanksText, "THANKYOU FOR THE ORDER.");
 		}
 	
