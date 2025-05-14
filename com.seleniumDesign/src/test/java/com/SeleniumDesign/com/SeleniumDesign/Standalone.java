@@ -31,18 +31,14 @@ public class Standalone {
 		landingPage.loginIntoApplication("te100st@test.com", "12345678@Aa");
 		ProductCatalog productCatalog = new ProductCatalog(driver);
 		List<WebElement> products = productCatalog.getProductList();
-		WebElement prod = products.stream()
-				.filter(product -> product.findElement(By.cssSelector("b"))
-						.getText()
-						.equals("ZARA COAT 3"))
-				.findFirst()
-				.orElse(null);
+		productCatalog.addProductToCart(productName);
+		
+		
 		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
-		System.out.println(prod.findElement(By.cssSelector("b")).getText());
-		prod.findElement(By.cssSelector(".card-body button:last-of-type")).click();
-		wait.until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".ng-animating"))));
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#toast-container")));
-		driver.findElement(By.cssSelector("button[routerLink='/dashboard/cart']")).click();
+		
+		productCatalog.goToCart();
+		
+		
 		List<WebElement> productsInCart =  driver.findElements(By.cssSelector(".cartSection h3"));
 		Boolean match = productsInCart.stream().anyMatch(product->product.getText().equals(productName));
 		Assert.assertTrue(match);
