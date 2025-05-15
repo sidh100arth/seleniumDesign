@@ -27,7 +27,7 @@ public class ThankyouPage extends AbstractComponents{
 	@FindBy(css="h1")
 	WebElement thanksheader;
 	
-	public String verifyThankyouMessage() {
+	public String getThankyouMessage() {
 		
 		waitForElementToAppear(thanks);
 		return thanksheader.getText().trim();

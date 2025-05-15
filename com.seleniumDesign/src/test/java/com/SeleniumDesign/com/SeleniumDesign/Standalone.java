@@ -46,7 +46,7 @@ public class Standalone {
 		checkoutpage.selectCountry(countryToSelect);
 		checkoutpage.submitOrder();
 		ThankyouPage thankspage = new ThankyouPage(driver);
-		String thanksText = thankspage.verifyThankyouMessage();
+		String thanksText = thankspage.getThankyouMessage();
 		Assert.assertEquals(thanksText, "THANKYOU FOR THE ORDER.");
 		}
 	
