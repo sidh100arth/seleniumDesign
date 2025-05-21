@@ -1,14 +1,17 @@
 package com.SeleniumDesign.com.SeleniumDesign;
 
+import org.testng.annotations.Test;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import seleniumDesign.Setup.BaseTest;
 import seleniumDesign.pageObject.CartPage;
 import seleniumDesign.pageObject.CheckoutPage;
 import seleniumDesign.pageObject.LandingPage;
 import seleniumDesign.pageObject.ProductCatalog;
 import seleniumDesign.pageObject.ThankyouPage;
 
+import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
 
@@ -21,31 +24,23 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
-public class Standalone {
+public class Standalone extends BaseTest{
 	
 	@Test
-	public void urlOpen() {
-		WebDriver driver = new ChromeDriver();
-		driver.manage().window().maximize();
+	public void urlOpen() throws IOException {
 		String productName = "ZARA COAT 3";
-		
-		LandingPage landingPage = new LandingPage(driver);
-		landingPage.goTo();
-		landingPage.loginIntoApplication("te100st@test.com", "12345678@Aa");
-		ProductCatalog productCatalog = new ProductCatalog(driver);
+		ProductCatalog productCatalog =landingPage.loginIntoApplication("te100st@test.com", "12345678@Aa");
 		List<WebElement> products = productCatalog.getProductList();
 		productCatalog.addProductToCart(productName);
-		productCatalog.goToCart();
-		CartPage cartpage = new CartPage(driver);
-		Boolean match = cartpage.matchProductInCart(productName);
-		cartpage.clickOnCheckoutButton();
-		Assert.assertTrue(match);
 		
+		CartPage cartpage = productCatalog.goToCart();
+		Boolean match = cartpage.matchProductInCart(productName);
+		
+		Assert.assertTrue(match);
 		String countryToSelect = "India";
-		CheckoutPage checkoutpage = new CheckoutPage(driver);
+		CheckoutPage checkoutpage = cartpage.clickOnCheckoutButton();
 		checkoutpage.selectCountry(countryToSelect);
-		checkoutpage.submitOrder();
-		ThankyouPage thankspage = new ThankyouPage(driver);
+		ThankyouPage thankspage = checkoutpage.submitOrder();;
 		String thanksText = thankspage.getThankyouMessage();
 		Assert.assertEquals(thanksText, "THANKYOU FOR THE ORDER.");
 		}

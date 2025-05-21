@@ -48,8 +48,10 @@ public class CheckoutPage extends AbstractComponents{
 		givenCountry.click();
 	}
 	
-	public void submitOrder() {
+	public ThankyouPage submitOrder() {
 		submitOrderButton.click();
+		ThankyouPage thankspage = new ThankyouPage(driver);
+		return thankspage;
 	}
 	
 }

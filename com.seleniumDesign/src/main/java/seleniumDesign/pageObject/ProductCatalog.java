@@ -59,9 +59,11 @@ public class ProductCatalog extends AbstractComponents{
 	}
 	
 	
-	public void goToCart() {
+	public CartPage goToCart() {
 		waitForInvisibilityOfWebElement(animation);
 		waitForElementToAppear(addToCartToast);
 		cartButton.click();
+		CartPage cartPge = new CartPage(driver);
+		return cartPge;
 	}
 }

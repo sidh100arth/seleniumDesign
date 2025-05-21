@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="1" total="3" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-05-19T17:01:51 IST" name="Suite" finished-at="2025-05-19T17:02:42 IST" duration-ms="51320">
+    <groups>
+    </groups>
+    <test started-at="2025-05-19T17:01:51 IST" name="Test" finished-at="2025-05-19T17:02:42 IST" duration-ms="51320">
+      <class name="com.SeleniumDesign.com.SeleniumDesign.Standalone">
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:com.SeleniumDesign.com.SeleniumDesign.Standalone@794cb805]" started-at="2025-05-19T17:01:51 IST" name="launchApplication" finished-at="2025-05-19T17:02:11 IST" duration-ms="19344" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method signature="urlOpen()[pri:0, instance:com.SeleniumDesign.com.SeleniumDesign.Standalone@794cb805]" started-at="2025-05-19T17:02:11 IST" name="urlOpen" finished-at="2025-05-19T17:02:42 IST" duration-ms="31710" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- urlOpen -->
+      </class> <!-- com.SeleniumDesign.com.SeleniumDesign.Standalone -->
+      <class name="com.SeleniumDesign.com.SeleniumDesign.ErrorValidation">
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:com.SeleniumDesign.com.SeleniumDesign.ErrorValidation@670002]" started-at="2025-05-19T17:01:51 IST" name="launchApplication" finished-at="2025-05-19T17:02:11 IST" duration-ms="19344" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method signature="checkErrorMessage()[pri:0, instance:com.SeleniumDesign.com.SeleniumDesign.ErrorValidation@670002]" started-at="2025-05-19T17:02:11 IST" name="checkErrorMessage" finished-at="2025-05-19T17:02:16 IST" duration-ms="5495" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkErrorMessage -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:com.SeleniumDesign.com.SeleniumDesign.ErrorValidation@670002]" started-at="2025-05-19T17:02:42 IST" name="closeDriver" finished-at="2025-05-19T17:02:42 IST" duration-ms="250" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+      </class> <!-- com.SeleniumDesign.com.SeleniumDesign.ErrorValidation -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>

@@ -36,9 +36,11 @@ public class CartPage extends AbstractComponents{
 		return productsInCart.stream().anyMatch(productCart->productCart.getText().equalsIgnoreCase(product));
 	}
 	
-	public void clickOnCheckoutButton() {
+	public CheckoutPage clickOnCheckoutButton() {
 		waitForElementToAppear(pathcheckOutButton);
 		checkOutButton.click();
+		CheckoutPage checkoutpage = new CheckoutPage(driver);
+		return checkoutpage;
 	}
 	
 	
