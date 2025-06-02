@@ -1,6 +1,10 @@
 package com.SeleniumDesign.com.SeleniumDesign;
 
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import com.aventstack.extentreports.ExtentReports;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -13,6 +17,7 @@ import seleniumDesign.pageObject.ThankyouPage;
 
 import java.io.IOException;
 import java.time.Duration;
+import java.util.HashMap;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -26,10 +31,12 @@ import org.testng.annotations.Test;
 
 public class Standalone extends BaseTest{
 	
-	@Test
-	public void urlOpen() throws IOException {
+	@Test(dataProvider="dp")
+	public void urlOpen(HashMap<String , String> input) throws IOException {
+		ExtentReports extent = initlizeExtentReport();
+		extent.createTest("First Test");
 		String productName = "ZARA COAT 3";
-		ProductCatalog productCatalog =landingPage.loginIntoApplication("te100st@test.com", "12345678@Aa");
+		ProductCatalog productCatalog =landingPage.loginIntoApplication(input.get("email"), input.get("password"));
 		List<WebElement> products = productCatalog.getProductList();
 		productCatalog.addProductToCart(productName);
 		
@@ -43,6 +50,9 @@ public class Standalone extends BaseTest{
 		ThankyouPage thankspage = checkoutpage.submitOrder();;
 		String thanksText = thankspage.getThankyouMessage();
 		Assert.assertEquals(thanksText, "THANKYOU FOR THE ORDER.");
+		extent.flush();
 		}
+	
+	
 	
 }
