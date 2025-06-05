@@ -7,12 +7,12 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
 public class ExtentReportSetup {
 
-	ExtentReports extent;
-	public ExtentReports initlizeExtentReport() {
-		File file = new File(System.getProperty("user.dir")+"\\reports\\report.html");
+	
+	public static ExtentReports initlizeExtentReport() {
+		File file = new File(System.getProperty("user.dir")+"//reports//report.html");
 		ExtentSparkReporter spark = new ExtentSparkReporter(file);
 		spark.config().setReportName("First Report");
-		
+		ExtentReports extent;
 		extent = new ExtentReports();
 		extent.attachReporter(spark);
 		extent.setSystemInfo("Tester", "Sidharth");

@@ -9,11 +9,55 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Suite</th></tr>
-<tr><td><a href="#t0">Test</a></td><td class="num">2</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">51,320</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Standalone</a></td><td class="num">2</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">117,657</td><td></td><td></td></tr>
+<tr class="stripe"><td><a href="#t1">ErrorValidation</a></td><td class="num">2</td><td class="num">0</td><td class="num">0</td><td class="num attn">2</td><td class="num">130,970</td><td></td><td></td></tr>
+<tr><th>Total</th><th class="num">4</th><th class="num">0</th><th class="num">0</th><th class="num attn">2</th><th class="num">248,627</th><th colspan="2"></th></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">com.SeleniumDesign.com.SeleniumDesign.ErrorValidation</td><td><a href="#m0">checkErrorMessage</a></td><td rowspan="1">1747654331036</td><td rowspan="1">5495</td></tr><tr class="passedodd"><td rowspan="1">com.SeleniumDesign.com.SeleniumDesign.Standalone</td><td><a href="#m1">urlOpen</a></td><td rowspan="1">1747654331036</td><td rowspan="1">31710</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Standalone &#8212; passed</th></tr><tr class="passedeven"><td rowspan="2">com.SeleniumDesign.com.SeleniumDesign.Standalone</td><td><a href="#m0">urlOpen</a></td><td rowspan="2">1748931776252</td><td rowspan="2">42410</td></tr><tr class="passedeven"><td><a href="#m1">urlOpen</a></td></tr></tbody>
+<tbody id="t1"><tr><th colspan="4">ErrorValidation &#8212; failed</th></tr><tr class="failedeven"><td rowspan="2">com.SeleniumDesign.com.SeleniumDesign.ErrorValidation</td><td><a href="#m2">checkErrorMessage</a></td><td rowspan="2">1748931776252</td><td rowspan="2">12377</td></tr><tr class="failedeven"><td><a href="#m3">checkErrorMessage</a></td></tr><tr><th colspan="4">ErrorValidation &#8212; passed</th></tr><tr class="passedeven"><td rowspan="2">com.SeleniumDesign.com.SeleniumDesign.ErrorValidation</td><td><a href="#m4">productErrorValidation</a></td><td rowspan="2">1748931837978</td><td rowspan="2">19083</td></tr><tr class="passedeven"><td><a href="#m5">productErrorValidation</a></td></tr></tbody>
 </table>
-<h2>Test</h2><h3 id="m0">com.SeleniumDesign.com.SeleniumDesign.ErrorValidation#checkErrorMessage</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">com.SeleniumDesign.com.SeleniumDesign.Standalone#urlOpen</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Standalone</h2><h3 id="m0">com.SeleniumDesign.com.SeleniumDesign.Standalone#urlOpen</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>{password=12345678@Aa, product=, email=te100st@test.com}</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">com.SeleniumDesign.com.SeleniumDesign.Standalone#urlOpen</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>{password=12345678@Aa, product=, email=te100st@test.com}</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>ErrorValidation</h2><h3 id="m2">com.SeleniumDesign.com.SeleniumDesign.ErrorValidation#checkErrorMessage</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>{password=12345678@Aa, product=, email=te100st@test.com}</td></tr><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;[class*=flyInOut]&quot;}
+  (Session info: chrome=133.0.6943.98)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: &apos;4.31.0&apos;, revision: &apos;1ef9f18787*&apos;
+System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;aarch64&apos;, os.version: &apos;15.3.1&apos;, java.version: &apos;17.0.12&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [05b95aca3bc051238c39882f57cce98b, findElement {value=[class*=flyInOut], using=css selector}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 133.0.6943.98, chrome: {chromedriverVersion: 133.0.6943.141 (2a5d6da0d61..., userDataDir: /var/folders/wp/34bv3qf95ld...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50558}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:50558/devtoo..., se:cdpVersion: 133.0.6943.98, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 05b95aca3bc051238c39882f57cce98b
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:368)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:362)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy16.getText(Unknown Source)
+	at seleniumDesign.pageObject.LandingPage.getErrorMessage(LandingPage.java:43)
+	at com.SeleniumDesign.com.SeleniumDesign.ErrorValidation.checkErrorMessage(ErrorValidation.java:26)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+... Removed 23 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">com.SeleniumDesign.com.SeleniumDesign.ErrorValidation#checkErrorMessage</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>{password=12345678@Aa, product=, email=te100st@test.com}</td></tr><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: expected [Incorrect email or password.] but found [Login Successfully]
+	at com.SeleniumDesign.com.SeleniumDesign.ErrorValidation.checkErrorMessage(ErrorValidation.java:27)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+... Removed 24 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">com.SeleniumDesign.com.SeleniumDesign.ErrorValidation#productErrorValidation</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>{password=12345678@Aa, product=, email=te100st@test.com}</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m5">com.SeleniumDesign.com.SeleniumDesign.ErrorValidation#productErrorValidation</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>{password=12345678@Aa, product=, email=te100st@test.com}</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

@@ -13,7 +13,7 @@ import seleniumDesign.abstractComponents.AbstractComponents;
 public class ProductCatalog extends AbstractComponents{
 
 	
-	WebDriver driver;
+	public WebDriver driver;
 	public ProductCatalog(WebDriver driver) {
 		super(driver);
 		this.driver = driver;

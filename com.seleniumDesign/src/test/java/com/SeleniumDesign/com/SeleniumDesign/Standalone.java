@@ -33,8 +33,8 @@ public class Standalone extends BaseTest{
 	
 	@Test(dataProvider="dp")
 	public void urlOpen(HashMap<String , String> input) throws IOException {
-		ExtentReports extent = initlizeExtentReport();
-		extent.createTest("First Test");
+		
+		
 		String productName = "ZARA COAT 3";
 		ProductCatalog productCatalog =landingPage.loginIntoApplication(input.get("email"), input.get("password"));
 		List<WebElement> products = productCatalog.getProductList();
@@ -50,7 +50,7 @@ public class Standalone extends BaseTest{
 		ThankyouPage thankspage = checkoutpage.submitOrder();;
 		String thanksText = thankspage.getThankyouMessage();
 		Assert.assertEquals(thanksText, "THANKYOU FOR THE ORDER.");
-		extent.flush();
+		
 		}
 	
 	
