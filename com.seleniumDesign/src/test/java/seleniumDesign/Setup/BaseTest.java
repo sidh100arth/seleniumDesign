@@ -79,6 +79,7 @@ public List<HashMap<String , String>> convertJsonToMap() throws IOException {
 public Object[][] dp() throws IOException {
 	
 	List<HashMap<String, String>> input = convertJsonToMap();
+	System.out.println(input.size());
 	Object[][] data = new Object[input.size()][1];
 	for(int i =0 ; i<input.size();i++) {
 		data[i][0] = input.get(i);

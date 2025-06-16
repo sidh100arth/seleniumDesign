@@ -8,6 +8,7 @@ import com.aventstack.extentreports.ExtentReports;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import seleniumDesign.Listners.RetryListner;
 import seleniumDesign.Setup.BaseTest;
 import seleniumDesign.pageObject.CartPage;
 import seleniumDesign.pageObject.CheckoutPage;
@@ -31,7 +32,7 @@ import org.testng.annotations.Test;
 
 public class Standalone extends BaseTest{
 	
-	@Test(dataProvider="dp")
+	@Test(dataProvider="dp",retryAnalyzer=RetryListner.class)
 	public void urlOpen(HashMap<String , String> input) throws IOException {
 		
 		
